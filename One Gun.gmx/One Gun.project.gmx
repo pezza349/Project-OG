@@ -21,10 +21,7 @@
     <sprite>sprites\spr_enemy</sprite>
     <sprite>sprites\spr_wchest</sprite>
     <sprite>sprites\spr_wchest_key</sprite>
-<<<<<<< HEAD
-    <sprite>sprites\spr_money</sprite>
-=======
->>>>>>> origin/master
+    <sprite>sprites\DELETEME</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -48,7 +45,6 @@
     <object>objects\obj_enemy</object>
     <object>objects\obj_wchest</object>
     <object>objects\obj_wchest_key</object>
-    <object>objects\obj_money</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\tutorial_</room>
