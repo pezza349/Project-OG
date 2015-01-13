@@ -21,7 +21,6 @@
     <sprite>sprites\spr_enemy</sprite>
     <sprite>sprites\spr_wchest</sprite>
     <sprite>sprites\spr_wchest_key</sprite>
-    <sprite>sprites\DELETEME</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
