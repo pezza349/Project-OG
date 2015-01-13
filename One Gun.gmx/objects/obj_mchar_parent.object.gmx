@@ -219,6 +219,7 @@
             <kind>1</kind>
             <string>global.health = 10;
 global.hunger = 10;
+global.money = 0;
 global.ammo = 10;
 global.keycount = 0;
 
