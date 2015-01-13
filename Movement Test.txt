@@ -1,0 +1,388 @@
+import pygame, sys, pygame.mixer
+from pygame.locals import *
+
+pygame.init()
+surface = pygame.display.set_mode((720, 480))
+background = pygame.Surface([720,480],pygame.SRCALPHA,32)
+background = background.convert_alpha()
+background.fill((0, 0, 0))
+pygame.display.set_caption('Project Open')
+
+FPS = 30
+fpsClock = pygame.time.Clock()
+                
+bg = "bg.png"
+a1 = "Grass.png"
+a2 = "Water.png"
+a3 = "Sand.png"
+a4 = "Concrete.png"
+a5 = "Player.png"
+px = 0
+py = 0
+pxy = px,py
+
+c1 = 0,0
+c2 = 50,0
+c3 = 100,0
+c4 = 150,0
+c5 = 200,0
+c6 = 250,0
+c7 = 300,0
+c8 = 350,0
+c9 = 400,0
+c10 = 450,0
+c11 = 500,0
+c12 = 550,0
+c13 = 600,0
+c14 = 650,0
+c15 = 700,0
+c16 = 750,0
+c17 = 0,50
+c18 = 50,50
+c19 = 100,50
+c20 = 150,50
+c21 = 200,50
+c22 = 250,50
+c23 = 300,50
+c24 = 350,50
+c25 = 400,50
+c26 = 450,50
+c27 = 500,50
+c28 = 550,50
+c29 = 600,50
+c30 = 650,50
+c31 = 700,50
+c32 = 750,50
+c33 = 0,100
+c34 = 50,100
+c35 = 100,100
+c36 = 150,100
+c37 = 200,100
+c38 = 250,100
+c39 = 300,100
+c40 = 350,100
+c41 = 400,100
+c42 = 450,100
+c43 = 500,100
+c44 = 550,100
+c45 = 600,100
+c46 = 650,100
+c47 = 700,100
+c48 = 750,100
+c49 = 0,150
+c50 = 50,150
+c51 = 100,150
+c52 = 150,150
+c53 = 200,150
+c54 = 250,150
+c55 = 300,150
+c56 = 350,150
+c57 = 400,150
+c58 = 450,150
+c59 = 500,150
+c60 = 550,150
+c61 = 600,150
+c62 = 650,150
+c63 = 700,150
+c64 = 750,150
+c65 = 0,200
+c66 = 50,200
+c67 = 100,200
+c68 = 150,200
+c69 = 200,200
+c70 = 250,200
+c71 = 300,200
+c72 = 350,200
+c73 = 400,200
+c74 = 450,200
+c75 = 500,200
+c76 = 550,200
+c77 = 600,200
+c78 = 650,200
+c79 = 700,200
+c80 = 750,200
+c81 = 0,250
+c82 = 50,250
+c83 = 100,250
+c84 = 150,250
+c85 = 200,250
+c86 = 250,250
+c87 = 300,250
+c88 = 350,250
+c89 = 400,250
+c90 = 450,250
+c91 = 500,250
+c92 = 550,250
+c93 = 600,250
+c94 = 650,250
+c95 = 700,250
+c96 = 750,250
+c97 = 0,300
+c98 = 50,300
+c99 = 100,300
+c100 = 150,300
+c101 = 200,300
+c102 = 250,300
+c103 = 300,300
+c104 = 350,300
+c105 = 400,300
+c106 = 450,300
+c107 = 500,300
+c108 = 550,300
+c109 = 600,300
+c110 = 650,300
+c111 = 700,300
+c112 = 750,300
+c113 = 0,350
+c114 = 50,350
+c115 = 100,350
+c116 = 150,350
+c117 = 200,350
+c118 = 250,350
+c119 = 300,350
+c120 = 350,350
+c121 = 400,350
+c122 = 450,350
+c123 = 500,350
+c124 = 550,350
+c125 = 600,350
+c126 = 650,350
+c127 = 700,350
+c128 = 750,350
+c129 = 0,400
+c130 = 50,400
+c131 = 100,400
+c132 = 150,400 
+c133 = 200,400
+c134 = 250,400
+c135 = 300,400 
+c136 = 350,400
+c137 = 400,400
+c138 = 450,400
+c139 = 500,400
+c140 = 550,400
+c141 = 600,400
+c142 = 650,400
+c143 = 700,400
+c144 = 750,400
+c145 = 0,450
+c146 = 50,450
+c147 = 100,450
+c148 = 150,450
+c149 = 200,450
+c150 = 250,450
+c151 = 300,450
+c152 = 350,450
+c153 = 400,450
+c154 = 450,450
+c155 = 500,450
+c156 = 550,450
+c157 = 600,450
+c158 = 650,450
+c159 = 700,450
+c160 = 750,450
+
+pygame.init()
+screen = pygame.display.set_mode((720,480),0,32)
+pygame.display.set_caption("Project Open")
+
+b = pygame.image.load(bg).convert()
+p = pygame.image.load(a5).convert_alpha()
+g = pygame.image.load(a1).convert_alpha()
+w = pygame.image.load(a2).convert_alpha()
+s = pygame.image.load(a3).convert_alpha()
+c = pygame.image.load(a4).convert_alpha()
+
+screen.blit(background, (0, 0))
+pygame.display.flip()
+
+def tilerender():
+
+    screen.blit(g, (c1))
+    screen.blit(p, (pxy))
+    screen.blit(g, (c2))
+    screen.blit(g, (c3))
+    screen.blit(g, (c4))
+    screen.blit(g, (c5))
+    screen.blit(g, (c6))
+    screen.blit(g, (c7))
+    screen.blit(g, (c8))
+    screen.blit(g, (c9))
+    screen.blit(g, (c10))
+    screen.blit(g, (c11))
+    screen.blit(g, (c12))
+    screen.blit(g, (c13))
+    screen.blit(g, (c14))
+    screen.blit(g, (c15))
+    screen.blit(g, (c16))
+    screen.blit(g, (c17))
+    screen.blit(g, (c18))
+    screen.blit(g, (c19))
+    screen.blit(g, (c20))
+    screen.blit(g, (c21))
+    screen.blit(g, (c22))
+    screen.blit(g, (c23))
+    screen.blit(g, (c24))
+    screen.blit(g, (c25))
+    screen.blit(g, (c26))
+    screen.blit(g, (c27))
+    screen.blit(g, (c28))
+    screen.blit(g, (c29))
+    screen.blit(g, (c30))
+    screen.blit(g, (c31))
+    screen.blit(g, (c32))
+    screen.blit(g, (c33))
+    screen.blit(g, (c34))
+    screen.blit(g, (c35))
+    screen.blit(g, (c36))
+    screen.blit(g, (c37))
+    screen.blit(g, (c38))
+    screen.blit(s, (c39))
+    screen.blit(s, (c40))
+    screen.blit(s, (c41))
+    screen.blit(s, (c42))
+    screen.blit(g, (c43))
+    screen.blit(g, (c44))
+    screen.blit(g, (c45))
+    screen.blit(g, (c46))
+    screen.blit(g, (c47))
+    screen.blit(g, (c48))
+    screen.blit(g, (c49))
+    screen.blit(g, (c50))
+    screen.blit(g, (c51))
+    screen.blit(g, (c52))
+    screen.blit(g, (c53))
+    screen.blit(g, (c54))
+    screen.blit(g, (c55))
+    screen.blit(g, (c56))
+    screen.blit(g, (c57))
+    screen.blit(g, (c58))
+    screen.blit(g, (c59))
+    screen.blit(g, (c60))
+    screen.blit(g, (c61))
+    screen.blit(g, (c62))
+    screen.blit(g, (c63))
+    screen.blit(g, (c64))
+    screen.blit(g, (c65))
+    screen.blit(g, (c66))
+    screen.blit(g, (c67))
+    screen.blit(g, (c68))
+    screen.blit(g, (c69))
+    screen.blit(g, (c70))
+    screen.blit(g, (c71))
+    screen.blit(g, (c72))
+    screen.blit(g, (c73))
+    screen.blit(g, (c74))
+    screen.blit(g, (c75))
+    screen.blit(g, (c76))
+    screen.blit(g, (c77))
+    screen.blit(g, (c78))
+    screen.blit(g, (c79))
+    screen.blit(g, (c80))
+    screen.blit(c, (c81))
+    screen.blit(c, (c82))
+    screen.blit(c, (c83))
+    screen.blit(c, (c84))
+    screen.blit(g, (c85))
+    screen.blit(g, (c86))
+    screen.blit(g, (c87))
+    screen.blit(g, (c88))
+    screen.blit(g, (c89))
+    screen.blit(g, (c90))
+    screen.blit(g, (c91))
+    screen.blit(g, (c92))
+    screen.blit(g, (c93))
+    screen.blit(g, (c94))
+    screen.blit(g, (c95))
+    screen.blit(g, (c96))
+    screen.blit(g, (c97))
+    screen.blit(g, (c98))
+    screen.blit(g, (c99))
+    screen.blit(g, (c100))
+    screen.blit(g, (c101))
+    screen.blit(w, (c102))
+    screen.blit(w, (c103))
+    screen.blit(w, (c104))
+    screen.blit(w, (c105))
+    screen.blit(g, (c106))
+    screen.blit(g, (c107))
+    screen.blit(g, (c108))
+    screen.blit(g, (c109))
+    screen.blit(g, (c110))
+    screen.blit(g, (c111))
+    screen.blit(g, (c112))
+    screen.blit(g, (c113))
+    screen.blit(g, (c114))
+    screen.blit(g, (c115))
+    screen.blit(g, (c116))
+    screen.blit(g, (c117))
+    screen.blit(g, (c118))
+    screen.blit(g, (c119))
+    screen.blit(g, (c120))
+    screen.blit(g, (c121))
+    screen.blit(g, (c122))
+    screen.blit(g, (c123))
+    screen.blit(g, (c124))
+    screen.blit(g, (c125))
+    screen.blit(g, (c126))
+    screen.blit(g, (c127))
+    screen.blit(g, (c128))
+    screen.blit(g, (c129))
+    screen.blit(g, (c130))
+    screen.blit(g, (c131))
+    screen.blit(g, (c132))
+    screen.blit(g, (c133))
+    screen.blit(g, (c134))
+    screen.blit(g, (c135))
+    screen.blit(g, (c136))
+    screen.blit(g, (c137))
+    screen.blit(g, (c138))
+    screen.blit(g, (c139))
+    screen.blit(g, (c140))
+    screen.blit(g, (c141))
+    screen.blit(g, (c142))
+    screen.blit(g, (c143))
+    screen.blit(g, (c144))
+    screen.blit(g, (c145))
+    screen.blit(g, (c146))
+    screen.blit(g, (c147))
+    screen.blit(g, (c148))
+    screen.blit(g, (c149))
+    screen.blit(g, (c150))
+    screen.blit(g, (c151))
+    screen.blit(g, (c152))
+    screen.blit(g, (c153))
+    screen.blit(g, (c154))
+    screen.blit(g, (c155))
+    screen.blit(g, (c156))
+    screen.blit(g, (c157))
+    screen.blit(g, (c158))
+    screen.blit(g, (c159))
+    screen.blit(g, (c160))
+
+while True:
+    screen.blit(p,(px,py))   
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+    
+    keys_pressed = pygame.key.get_pressed()
+
+    if keys_pressed[K_LEFT]:
+        px -= 2.5
+
+    if keys_pressed[K_RIGHT]:
+        px += 2.5
+
+    if keys_pressed[K_UP]:
+        py -= 2.5
+
+    if keys_pressed[K_DOWN]:
+        py += 2.5
+
+    pygame.display.update()
+    fpsClock.tick(FPS)
+
+    
+
